@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "jest --coverage",
-    "start:dev": "nodemon server.js"
+    "start:dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "Olawole Jethro",
   "license": "ISC",

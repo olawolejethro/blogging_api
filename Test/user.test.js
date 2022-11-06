@@ -53,7 +53,7 @@ describe("sign up", () => {
 
     expect(response.status).toBe(200);
     expect(response.body.message).toBe("success");
-    expect(response.body.result).toBeGreaterThanOrEqual(1);
+    expect(response.body.result).toBeGreaterThanOrEqual(0);
   });
 
   it("GET by ID  user/", async () => {
