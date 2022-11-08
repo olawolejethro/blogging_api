@@ -51,25 +51,25 @@ describe("/blogs", () => {
     expect(response.body.newBlog.state).toBe("draft");
   });
 
-  it("GET/blogs", async () => {
-    const blogData = {
-      state: "published",
-    };
-    const response = await supertest(app)
-      .get("/blogs")
-      .set("authrization", `Bearer ${TEST_TOKEN}`)
-      .send(blogData);
-
-    expect(response.status).toBe(200);
-    expect(response.body.status).toBe("success");
-  });
-
   it("GET/blogs?id", async () => {
     const response = await supertest(app)
       .get(`/blogs/${blogId}`)
       .set("Authorization", `Bearer ${TEST_TOKEN}`);
     expect(response.status).toBe(200);
     expect(response.body.Blog).toHaveProperty("author");
+  });
+
+  it("UPDATE/blogs", async () => {
+    const blogData = {
+      state: "published",
+    };
+    const response = await supertest(app)
+      .patch(`/blogs/${blogId}`)
+      .set("authrization", `Bearer ${TEST_TOKEN}`)
+      .send(blogData);
+
+    expect(response.status).toBe(200);
+    expect(response.body.status).toBe("success");
   });
 
   it("DELETE/blogs/blogId", async () => {

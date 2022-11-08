@@ -73,7 +73,7 @@ exports.ownerBlog = async function (req, res, next) {
 exports.getBlogById = async function (req, res, next) {
   try {
     const { blogId } = req.params;
-
+    console.log("block");
     let Blog = await blog.findById(blogId).populate("author");
     console.log(Blog);
     if (!Blog) {
@@ -92,9 +92,11 @@ exports.getBlogById = async function (req, res, next) {
 exports.updateBlog = async function (req, res, next) {
   try {
     const { blogId } = req.params;
-    const { state } = req.body;
+    const state = req.body;
 
+    console.log("book");
     const parsedBlog = await blog.findById(blogId);
+    console.log(parsedBlog);
     if (!parsedBlog) {
       return next(new Error("this is not your blog"));
     }
@@ -107,20 +109,20 @@ exports.updateBlog = async function (req, res, next) {
       new: true,
       runValidators: true,
     });
-    console.log(newBlog);
-    if (!newBlog) {
-      res.status(404);
-      const error = new Error("No blog found with this ID");
-      next(error);
-    }
+    // // console.log(newBlog);
+    // if (!newBlog) {
+    //   res.status(404);
+    //   const error = new Error("No blog found with this ID");
+    //   next(error);
+    // }
 
-    if (newBlog.author !== req.user._id) {
-      return next(
-        new Error("you are not Authorized to perform this operation")
-      );
-    }
-    newBlog.state = state;
-    await newBlog.save();
+    // // if (newBlog.author !== req.user._id) {
+    // //   return next(
+    // //     new Error("you are not Authorized to perform this operation")
+    // //   );
+    // // }
+    // newBlog.state = state;
+    // await newBlog.save();
     return res.status(200).json({ status: "success", newBlog });
   } catch (error) {
     next(error);

@@ -14,11 +14,6 @@ const blogSchema = new Schema({
   },
 
   author: {
-    String,
-    required: true,
-  },
-
-  author: {
     type: ObjectId,
     ref: "user",
   },
