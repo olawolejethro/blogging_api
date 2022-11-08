@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const supertest = require("supertest");
-
+jest.setTimeout(30000);
 require("dotenv").config();
 const BLOG_TEST_CONNECTION_URL = process.env.BLOG_TEST_CONNECTION_URL;
 const app = require("../app");

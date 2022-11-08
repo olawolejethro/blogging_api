@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1667764917583" clover="3.2.0">
-  <project timestamp="1667764917583" name="All files">
-    <metrics statements="228" coveredstatements="139" conditionals="42" coveredconditionals="6" methods="19" coveredmethods="12" elements="289" coveredelements="157" complexity="0" loc="228" ncloc="228" packages="4" files="10" classes="10"/>
+<coverage generated="1667876531981" clover="3.2.0">
+  <project timestamp="1667876531982" name="All files">
+    <metrics statements="232" coveredstatements="157" conditionals="46" coveredconditionals="12" methods="20" coveredmethods="13" elements="298" coveredelements="182" complexity="0" loc="232" ncloc="232" packages="4" files="10" classes="10"/>
     <package name="Blogging API">
-      <metrics statements="25" coveredstatements="23" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="29" coveredstatements="24" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="1"/>
       <file name="app.js" path="C:\Users\IFECHUKWU\Desktop\BACKEND\Blogging API\app.js">
-        <metrics statements="17" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="21" coveredstatements="17" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -22,6 +22,10 @@
         <line num="18" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="27" count="0" type="stmt"/>
         <line num="30" count="2" type="stmt"/>
       </file>
       <file name="passport.js" path="C:\Users\IFECHUKWU\Desktop\BACKEND\Blogging API\passport.js">
@@ -106,22 +110,22 @@
       </file>
     </package>
     <package name="Blogging API.controller">
-      <metrics statements="155" coveredstatements="70" conditionals="40" coveredconditionals="5" methods="14" coveredmethods="10"/>
+      <metrics statements="155" coveredstatements="87" conditionals="40" coveredconditionals="11" methods="14" coveredmethods="11"/>
       <file name="authController.js" path="C:\Users\IFECHUKWU\Desktop\BACKEND\Blogging API\controller\authController.js">
-        <metrics statements="28" coveredstatements="10" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <metrics statements="28" coveredstatements="14" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="2"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
         <line num="39" count="2" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
@@ -139,7 +143,7 @@
         <line num="63" count="0" type="stmt"/>
       </file>
       <file name="blogController.js" path="C:\Users\IFECHUKWU\Desktop\BACKEND\Blogging API\controller\blogController.js">
-        <metrics statements="94" coveredstatements="37" conditionals="28" coveredconditionals="5" methods="7" coveredmethods="5"/>
+        <metrics statements="94" coveredstatements="46" conditionals="28" coveredconditionals="9" methods="7" coveredmethods="5"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -151,8 +155,8 @@
         <line num="13" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="22" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
         <line num="25" count="2" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
         <line num="27" count="1" type="stmt"/>
@@ -167,8 +171,8 @@
         <line num="42" count="1" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
         <line num="45" count="1" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
         <line num="51" count="2" type="stmt"/>
         <line num="52" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
@@ -187,15 +191,15 @@
         <line num="74" count="1" type="stmt"/>
         <line num="75" count="1" type="stmt"/>
         <line num="77" count="1" type="stmt"/>
-        <line num="78" count="0" type="stmt"/>
-        <line num="79" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="78" count="1" type="stmt"/>
+        <line num="79" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="80" count="0" type="stmt"/>
         <line num="81" count="0" type="stmt"/>
         <line num="82" count="0" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="87" count="0" type="stmt"/>
-        <line num="89" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
         <line num="92" count="2" type="stmt"/>
         <line num="93" count="0" type="stmt"/>
         <line num="94" count="0" type="stmt"/>
@@ -222,21 +226,21 @@
         <line num="131" count="1" type="stmt"/>
         <line num="132" count="1" type="stmt"/>
         <line num="133" count="1" type="stmt"/>
-        <line num="134" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="134" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="135" count="0" type="stmt"/>
-        <line num="137" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="137" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="138" count="0" type="stmt"/>
-        <line num="140" count="0" type="stmt"/>
-        <line num="141" count="0" type="stmt"/>
-        <line num="142" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="140" count="1" type="stmt"/>
+        <line num="141" count="1" type="stmt"/>
+        <line num="142" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="143" count="0" type="stmt"/>
         <line num="144" count="0" type="stmt"/>
         <line num="145" count="0" type="stmt"/>
-        <line num="147" count="0" type="stmt"/>
-        <line num="149" count="1" type="stmt"/>
+        <line num="147" count="1" type="stmt"/>
+        <line num="149" count="0" type="stmt"/>
       </file>
       <file name="userController.js" path="C:\Users\IFECHUKWU\Desktop\BACKEND\Blogging API\controller\userController.js">
-        <metrics statements="33" coveredstatements="23" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <metrics statements="33" coveredstatements="27" conditionals="4" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -248,28 +252,28 @@
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
         <line num="30" count="2" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
-        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="38" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
         <line num="51" count="2" type="stmt"/>
         <line num="52" count="1" type="stmt"/>
         <line num="53" count="1" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
         <line num="56" count="1" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
       </file>
     </package>
   </project>

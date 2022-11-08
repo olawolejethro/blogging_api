@@ -5,8 +5,6 @@ const TEST_TOKEN = process.env.TEST_TOKEN;
 const BLOG_TEST_CONNECTION_URL = process.env.BLOG_TEST_CONNECTION_URL;
 const app = require("../app");
 
-const user = require("../Model/userModel");
-
 beforeAll((done) => {
   mongoose.connect(BLOG_TEST_CONNECTION_URL);
   mongoose.connection.on("connected", async () => {

@@ -34,7 +34,7 @@ exports.signup = async function (req, res, next) {
   }
 };
 
-// LOGIN CONTROLLER ROUTE
+// SIGIN CONTROLLER ROUTE
 
 exports.signin = async function (req, res, next) {
   try {
