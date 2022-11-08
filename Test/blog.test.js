@@ -65,7 +65,7 @@ describe("/blogs", () => {
     };
     const response = await supertest(app)
       .patch(`/blogs/${blogId}`)
-      .set("authrization", `Bearer ${TEST_TOKEN}`)
+      .set("Authorization", `Bearer ${TEST_TOKEN}`)
       .send(blogData);
 
     expect(response.status).toBe(200);
