@@ -4,6 +4,7 @@ require("dotenv").config();
 const TEST_TOKEN = process.env.TEST_TOKEN;
 const BLOG_TEST_CONNECTION_URL = process.env.BLOG_TEST_CONNECTION_URL;
 const app = require("../app");
+jest.setTimeout(30000);
 
 beforeAll((done) => {
   mongoose.connect(BLOG_TEST_CONNECTION_URL);
