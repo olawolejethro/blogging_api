@@ -32,7 +32,10 @@ exports.updateUser = async function (req, res, next) {
     const { userId } = req.params;
     const userDetails = req.body;
 
-    const user = await User.findById(userId);
+    const user = await User.findById(userId, {
+      new: true,
+      runValidators: true,
+    });
     // console.log(user);
     if (!user) {
       return res.status(404).json({ status: false, order: null });

@@ -109,20 +109,7 @@ exports.updateBlog = async function (req, res, next) {
       new: true,
       runValidators: true,
     });
-    // // console.log(newBlog);
-    // if (!newBlog) {
-    //   res.status(404);
-    //   const error = new Error("No blog found with this ID");
-    //   next(error);
-    // }
 
-    // // if (newBlog.author !== req.user._id) {
-    // //   return next(
-    // //     new Error("you are not Authorized to perform this operation")
-    // //   );
-    // // }
-    // newBlog.state = state;
-    // await newBlog.save();
     return res.status(200).json({ status: "success", newBlog });
   } catch (error) {
     next(error);

@@ -1,4 +1,5 @@
 const bcrypt = require("bcrypt");
+const crypto = require("crypto");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const validator = require("validator");
@@ -47,6 +48,11 @@ const userSchema = new Schema({
     require: [true, "please input the correct  password"],
   },
 
+  passwordModifiedAt: { type: Date },
+  active: { type: Boolean, default: true, select: false },
+  paswordRestToken: { type: String },
+  passwordResetTokenExpiryTime: Date,
+
   createdAt: {
     type: Date,
     default: Date.now(),
@@ -64,6 +70,13 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
+// pre hook to update the passwordModifiedAt field
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password") || this.isNew) return next();
+  this.passwordModifiedAt = Date.now() - 1500;
+  next();
+});
+
 userSchema.methods.correctPassword = async function (
   candidatePassword,
   userPassword
@@ -71,5 +84,21 @@ userSchema.methods.correctPassword = async function (
   return await bcrypt.compare(candidatePassword, userPassword);
 };
 
+// checks if the password has been modified
+userSchema.methods.passwordModified = function (jwt_iat) {
+  if (!this.passwordModified) return false;
+  const jwt_iat_ts = new Date(jwt_iat * 1000).toISOString();
+  return new Date(jwt_iat_ts) < new Date(this.passwordModifiedAt);
+};
+
+/// genrating reset password token
+
+userSchema.methods.genResetToken = function () {
+  const token = crypto.randomBytes(32).toString("hex");
+  const hashedToken = crypto.createHash("sah512").update(token).digest("hex");
+  this.paswordRestToken = hashedToken;
+  this.passwordResetTokenExpiryTime = Date.now() + 10 * 60 * 1000;
+  return token;
+};
 const user = mongoose.model("user", userSchema);
 module.exports = user;
