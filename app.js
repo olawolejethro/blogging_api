@@ -35,10 +35,10 @@ app.get("/", (req, res) => {
 });
 
 //Error handling middleware
-app.use((err, req, res, next) => {
-  const status = err.status || 500;
-  const message = err.message.message || "server error!!!!!";
-  return res.status(status).json({ status: "somthing broke", message });
-});
+// app.use((err, req, res, next) => {
+//   const status = err.status || 500;
+//   const message = err.message.message || "server error!!!!!";
+//   return res.status(status).json({ status: "somthing broke", message });
+// });
 
 module.exports = app;

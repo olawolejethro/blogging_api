@@ -7,4 +7,6 @@ auth_router.post("/signup", userValidation, authController.signup);
 
 // SIGNIN ROUTE
 auth_router.post("/signin", userValidation, authController.signin);
+auth_router.post("/forgotPassword", authController.forgetPassword);
+auth_router.patch("/resetPassword/:token", authController.resetPassword);
 module.exports = auth_router;

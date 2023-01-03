@@ -1,7 +1,8 @@
 const jwt = require("jsonwebtoken");
 const user = require("../Model/userModel");
-
+const crypto = require("crypto");
 const userModel = require("../Model/userModel");
+const emailSender = require("../Utils/emailSender");
 require("dotenv").config();
 
 const secret = process.env.JWT_SECRET;
@@ -16,7 +17,13 @@ const signToken = (user) => {
 // SIGNUP CONTROLLER ROUTE
 exports.signup = async function (req, res, next) {
   try {
-    const { email, first_name, last_name, password } = req.body;
+    const { email, first_name, last_name, password, confirmPassword } =
+      req.body;
+
+    if (password !== confirmPassword) {
+      const error = new Error("password does not match");
+      return next(error);
+    }
     const user = await userModel.create({
       email,
       first_name,
@@ -24,7 +31,9 @@ exports.signup = async function (req, res, next) {
       password,
       confirmPassword,
     });
+
     user.password = undefined;
+    user.confirmPassword = undefined;
     const token = signToken(user);
     return res.json({
       message: "Signup successfull",
@@ -72,12 +81,14 @@ exports.forgetPassword = async (req, res, next) => {
   if (!User) return next(new Error("user can not be found"));
   try {
     const resetToken = User.genResetToken();
-    User.save({ validateBeforeSave: false });
+    console.log(resetToken);
+    await User.save({ validateBeforeSave: false });
     const resetPasswordURL = `${req.protocol}://${req.get(
       "host"
-    )}/api/v1/auth/resetPassword/${resetToken}`;
+    )}/resetPassword/${resetToken}`;
     const body = `Forgot your password? Submit a PATCH request with your new password and confirmPassword to: <a href=${resetPasswordURL}>${resetPasswordURL}</a>.\nIf you didn't forget your password, please ignore this email!`;
     const subject = "Your password reset token (valid for 10 min)";
+    await emailSender({ email, body, subject });
     return res.status(200).json({
       status: "success",
       message: "A link to reset your password hs been sent to your email",
@@ -98,12 +109,16 @@ exports.forgetPassword = async (req, res, next) => {
 exports.resetPassword = async (req, res, next) => {
   try {
     const token = req.params.token;
-    const hashedToken = crypto.creatHash("sha256").update(token).digest("hex");
+    console.log(token, "book");
+    const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
+    console.log(hashedToken);
     // /lloking for th user with the reset token
     const User = await user.findOne({
       paswordRestToken: hashedToken,
       passwordResetTokenExpiryTime: { $gt: Date.now() },
     });
+
+    console.log(User);
     if (!User) {
       return next(
         new Error("password reset token is invalid please try again")
